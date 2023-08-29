@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+    <strong>
+        Q1 Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype </strong>
+
+        class Parents{
+        
+            constructor(year){
+            this.year=year
+            }
+            
+            birthday() {
+            return "Happy Birthday "+this.year  }
+            }
+        
+        
+        
+        
+        
+        class Child extends Parents{
+            
+            other_function(
+                ){
+                console.log("dummy function")
+            }
+            
+        }
+        parentsobj= new Child('2023')
+        
+        console.log(parentsobj.birthday())
+
+        <strong>Q2.Write code to explain prototype chaining</strong>
+
+        function Animal(name){
+            this.name=name
+        }
+        
+        
+        Animal.prototype.breed="British Shorthair"
+        Animal.prototype.info=function(){
+            return `This ${this.name} of breed ${this.breed}`
+        }
+        
+        animalobj=new Animal('cat')
+        console.log(animalobj)
+        console.log(animalobj.breed)
+        console.log(animalobj.info())
+
+
+        Explaination :
+        
+        The syntax of writing prototype for a function is 
+            <i>function_name</i>.prototype.new_variable=value_or _function _to_be_assigned 
+        
+           where prototype is a keyword  and this value or function can be accessed in any Object of that  function after the declartion of the prototype
+
+        <strong> 
+        Q3. Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays </strong>
+        
+           Array.prototype.sum=function(){
+            let total=0;
+            for(let i=0;i&lt;this.length;i++){
+                total=total+this[i]
+                console.log(this[i])
+            }
+                return total
+            }
+            
+            a=[1,2,3]
+            console.log(a.sum())
+        
+        <strong>
+        Q4 Write a JavaScript function to retrieve all the names of object's own and inherited properties.</strong>
+
+            class CAR{
+                constructor(wheel,color){
+                    this.wheel=wheel
+                    this.color=color
+                    }
+                    
+                    models(){
+                        console.log('All models have exhaust')
+                    }
+                }
+                
+            class SWIFT extends CAR{
+                constructor(wheel,color,engine,make,seats){
+                    super(wheel,color)
+                    this.engine=engine
+                    this.make=make
+                        this.seats=seats
+                    }
+                }
+                
+            carobj= new SWIFT(4,'white','petrol',2020,4)
+            
+            console.log(Object.getOwnPropertyNames(carobj));
+
+    </pre>
+
+</body>
+</html>
